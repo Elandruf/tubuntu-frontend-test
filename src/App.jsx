@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { fetchUsers } from './services/api';
 import UserCard from './components/userCard';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import './App.css';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -8,13 +11,12 @@ function App() {
   useEffect(() => {
     fetchUsers()
       .then(data => {
-        console.log("Datos recibidos:", data);
+        console.log('fetchUsers()', data);
         setUsers(data);
       })
-      .catch(error => {
-        console.error("Error al cargar usuarios:", error);
-      });
+      .catch(console.error);
   }, []);
+
 
   console.log(users)
   if (!users.length) return <p>Cargando usuarios...</p>;
@@ -22,20 +24,19 @@ function App() {
   console.log('Usuarios:', users);
 
   return (
-    <div
-      style={{
-        maxWidth: 960,
-        margin: 'auto',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: 20,
-        padding: 20,
-      }}
-    >
-      {users.map(user => (
-        <UserCard key={u.id} user={u} />
-      ))}
-    </div>
+    <>
+      <Navbar />
+       <></>
+      <div
+        className='app-container'
+      >
+        {users.map(user => (
+          <UserCard key={user.id} user={user} />
+        ))}
+      </div>
+      
+      <Footer />
+    </>
   );
 }
 
