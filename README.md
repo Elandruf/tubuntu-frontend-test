@@ -1,6 +1,8 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo" width="50" />
 
 
+
+
 #Users List
 
 Esta aplicación está construida con React y Vite para mostrar una lista de usuarios de forma eficiente y ordenada. Permite cargar usuarios en filas de tres columnas y usar scroll infinito para traer más datos automáticamente conforme se navega hacia abajo.
